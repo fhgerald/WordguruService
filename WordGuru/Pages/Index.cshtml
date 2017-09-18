@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+  ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+    <div class="col-md-6">
+
+        <h2>Generate words</h2>
+        <div asp-validation-summary="All"></div>
+        <form method="POST">
+            <div>Enter letters for words: <input asp-for="Letter" /></div>
+            <input type="submit" />
+        </form>
+    </div>
+</div>
+
+
+@if (Model.WordList != null)
+{
+@foreach (var contact in Model.WordList.GroupBy(x => x.Length))
+ {
+     <div class="row">
+         <div class="col-md-12">
+             <h2>@contact.Key letter</h2>
+             <table class="table">
+                 <thead>
+                 <tr>
+                     <th>Name</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                 @foreach (var group in contact)
+                 {
+                     <tr>
+                         <td>@group</td>
+                     </tr>
+                 }
+                 </tbody>
+             </table>
+         </div>
+     </div>
+ }
+}
