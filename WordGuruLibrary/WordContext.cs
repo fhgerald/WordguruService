@@ -35,7 +35,7 @@ namespace WordGuruLibrary
     public void Read()
     {
       bool isFirstLineHandled = false;
-      using (var reader = File.OpenRead("de_DE_frami.dic"))
+      using (var reader = File.OpenRead(Path.Combine(Internal.AssemblyDirectory, "Wordlist15.txt")))
       {
         TextReader textReader = new StreamReader(reader);
 
