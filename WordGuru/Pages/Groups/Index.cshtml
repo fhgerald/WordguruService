@@ -1,0 +1,37 @@
+﻿@page
+@model WordGuru.Models.Groups.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Groups for statistics";
+}
+
+<h1>Groups</h1>
+<form method="post">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Edit | Delete | Statistic data</th>  
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var group in Model.Groups)
+        {
+            <tr>
+                <td>@group.Id</td>
+                <td>@group.Name</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@group.Id">Edit</a> | 
+                    <a asp-page="./Index" onclick="return confirm('Are you sure you want to delete this item?');" asp-page-handler="Delete" asp-route-id="@group.Id">Delete</a> | 
+                    <a asp-page="/Statistics/Index" asp-route-groupid="@group.Id">Statistic entries</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <a asp-page="./Create">Create</a>
+</form>
+

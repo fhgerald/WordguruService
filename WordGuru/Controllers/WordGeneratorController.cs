@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WordGuruLibrary;
+using WordGuruLibrary.WordGenerator;
 
 namespace WordGuru.Controllers
 {
@@ -18,7 +15,6 @@ namespace WordGuru.Controllers
       try
       {
         var wordContext = new WordContext();
-        wordContext.Read();
 
         var result = wordContext.GetWordWithLetters(letter.ToCharArray());
         return new ObjectResult(result);

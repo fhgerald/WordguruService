@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-  ViewData["Title"] = "Home page";
+  ViewData["Title"] = "Main";
 }
 
 <div class="row">
@@ -10,8 +10,19 @@
         <h2>Generate words</h2>
         <div asp-validation-summary="All"></div>
         <form method="POST">
-            <div>Enter letters for words: <input asp-for="Letter" /></div>
-            <input type="submit" />
+            <div class="row">
+                <div class="col-md-4">
+                    <label asp-for="Letter"></label>
+                    <input asp-for="Letter" class="form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label asp-for="LetterCount"></label>
+                    <input asp-for="LetterCount" class="form-control" />
+                </div>
+            </div>
+            <input type="submit"/>
         </form>
     </div>
 </div>

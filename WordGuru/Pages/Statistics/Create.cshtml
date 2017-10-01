@@ -1,0 +1,40 @@
+﻿@page
+@model WordGuru.Models.Statistics.CreateModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Create group statistics data";
+}
+
+
+<div class="container">
+    <h3>
+        Enter statistic data.
+    </h3>
+    <hr />
+    <br />  
+    <div asp-validation-summary="All"></div>
+    <form method="POST">
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="StatisticItem.DateTime"></label>
+                <input asp-for="StatisticItem.DateTime" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="StatisticItem.Name"></label>
+                <input asp-for="StatisticItem.Name" class="form-control"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="StatisticItem.Points"></label>
+                <input asp-for="StatisticItem.Points" class="form-control"/>
+            </div>
+        </div>
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Save"/>
+        <a class="btn btn-default" asp-page="./Index" asp-route-groupid="@Model.Group.Id">Cancel</a>
+    </form>
+</div>

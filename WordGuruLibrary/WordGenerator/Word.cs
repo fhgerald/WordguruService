@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace WordGuruLibrary
+namespace WordGuruLibrary.WordGenerator
 {
   internal class Word : IComparable
   {

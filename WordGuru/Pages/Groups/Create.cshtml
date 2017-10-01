@@ -1,0 +1,27 @@
+﻿@page
+@model WordGuru.Models.Groups.CreateModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Create group";
+}
+
+<div class="container">
+    <h3>
+        Enter your group name.
+    </h3>
+    <hr />
+    <br />
+    <div asp-validation-summary="All"></div>
+    <form method="POST">
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Group.Name"></label>
+                <input asp-for="Group.Name" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <input class="btn btn-primary" type="submit" value="Save" />
+        <a class="btn btn-default" asp-page="./Index">Cancel</a>
+    </form>
+</div>

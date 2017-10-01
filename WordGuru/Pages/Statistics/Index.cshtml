@@ -1,0 +1,47 @@
+﻿@page
+@model WordGuru.Models.Statistics.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Group statistics data";
+}
+
+@if (Model.Group == null)
+{
+    <h1>No group id has been defined</h1>
+}
+else
+{
+
+    <h1>Statistic data - @Model.Group.Name</h1>
+    <form method="post">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>User Name</th>
+                <th>Points</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var statisticItem in Model.StatisticItems)
+            {
+                <tr>
+                    <td>@statisticItem.Id</td>
+                    <td>@statisticItem.DateTime</td>
+                    <td>@statisticItem.Name</td>
+                    <td>@statisticItem.Points</td>
+                    <td>
+                        <a asp-page="./Index" onclick="return confirm('Are you sure you want to delete this item?');" asp-page-handler="Delete" asp-route-groupid="@Model.Group.Id" asp-route-id="@statisticItem.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+        <a asp-page="./Create" asp-route-id="@Model.Group.Id">Create</a> | <a asp-page="/Groups/Index">Back to groups</a>
+    </form>
+}
+

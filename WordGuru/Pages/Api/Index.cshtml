@@ -1,0 +1,50 @@
+﻿@page
+@model WordGuru.Models.Api.IndexModel
+
+<h1>WordGuru API methods</h1>
+
+<p>Use <a href="https://chrome.google.com/webstore/detail/boomerang-soap-rest-clien/eipdnjedkpcnlmmdfdkgfpljanehloah">Boomerang</a> to test the REST Webservice</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Area</td>
+            <td>URI</td>
+            <td>Sample</td>
+            <td>Description</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Game</td>
+            <td>GET @Model.BaseUri/RandomWordGenerator/{countOfLetters}</td>
+            <td>GET <a href="@Model.BaseUri/RandomWordGenerator/5">@Model.BaseUri/RandomWordGenerator/5</a></td>
+            <td>Generates a list of words with the given number of maximum letters</td>
+        </tr>
+        <tr>
+            <td>Game</td>
+            <td>GET @Model.BaseUri/WordGenerator/{sequenceOfLetters}</td>
+            <td>GET <a href="@Model.BaseUri/WordGenerator/salzburg">@Model.BaseUri/WordGenerator/salzburg</a></td>
+            <td>Generates a list of words by using the given list of letters</td>
+        </tr>
+        <tr>
+            <td>Statistic</td>
+            <td>GET @Model.BaseUri/statistics/{groupId}</td>
+            <td>GET <a href="@Model.BaseUri/statistics/1">@Model.BaseUri/statistics/1</a></td>
+            <td>Returns the top 20 results of the given group id</td>
+        </tr>
+        <tr>
+            <td>Statistic</td>
+            <td>POST @Model.BaseUri/statistics/</td>
+            <td>POST @Model.BaseUri/statistics/<br />BODY:<br />{"groupId":1,"dateTime":"2016-06-04T02:06:00+02:00","name":"test","points":33}</td>
+            <td>
+                Adds a new statistic item. All fields of the sample are mandatory. A short field description <br />
+                <ul>
+                    <li>groupId: Id of group</li>
+                    <li>dateTime: Data and time of the statistical event</li>
+                    <li>name: user name</li>
+                    <li>points: number of points reached.</li>
+                </ul>
+        </tr>
+    </tbody>
+</table>

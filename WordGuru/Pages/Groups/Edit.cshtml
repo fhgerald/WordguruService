@@ -1,0 +1,28 @@
+﻿@page "{id:int}"
+@model WordGuru.Models.Groups.EditModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Edit group";
+}
+
+<div class="container">
+    <h3>
+        Edit Group - @Model.Group.Id
+    </h3>
+    <hr />
+    <br />
+    <div asp-validation-summary="All"></div>
+    <form method="POST">
+        <input asp-for="Group.Id" type="hidden" />  
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Group.Name"></label>
+                <input asp-for="Group.Name" class="form-control"/>
+            </div>
+        </div>
+        <br/>
+        <input class="btn btn-primary" type="submit" value="Save"/>
+        <a class="btn btn-default" asp-page="./Index">Cancel</a>
+    </form>
+</div>
